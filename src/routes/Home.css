@@ -1,0 +1,110 @@
+/* Home.css */
+.home-container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.countdown-form {
+  display: flex;
+  flex-direction: column;
+  gap:3rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+}
+
+.form-group label {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #c9c9c9;
+}
+
+.form-group input[type="text"],
+.form-group input[type="date"],
+.form-group input[type="color"] {
+  padding: 0.6rem;
+  border-radius: 6px;
+  border: 2px solid transparent;
+  font-size: 1rem;
+  outline: none;
+
+}
+
+.form-group input[type="color"] {
+  height: 40px;
+  width: 70px;
+  border-radius: 5px;
+  padding: 0.1rem;
+}
+
+.form-group input[type="text"]:focus{
+    border: 2px solid rgb(63, 92, 255);
+}
+
+#eye {
+  position: relative;
+  align-self: start;
+}
+
+/* O ponto central */
+#point {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  background-color: black;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: eyeTremble 0.4s ease-in-out infinite;
+}
+
+/* Animação de tremor leve */
+@keyframes eyeTremble {
+  0% {
+    transform: translate(-50%, -50%);
+  }
+  25% {
+    transform: translate(-48%, -52%);
+  }
+  50% {
+    transform: translate(-52%, -48%);
+  }
+  75% {
+    transform: translate(-50.5%, -50.5%);
+  }
+  100% {
+    transform: translate(-50%, -50%);
+  }
+}
+
+.submit-btn {
+  padding: 0.8rem;
+  font-size: 1rem;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+  background-color: #45a049;
+}
+
+
+@media (max-width: 600px) {
+  .home-container {
+    margin: 2rem 1rem;
+    padding: 1.5rem;
+  }
+}

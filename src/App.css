@@ -6,8 +6,10 @@
     /* usado prencher o máximo da tela */
     background-position: center;
     background-repeat: no-repeat;
-    animation: moveBackground 10s cubic-bezier(0.4, 0, 0.4, 1) infinite alternate; /* infinite para uma animação infinita e alternate para ir e voltar. o cubic bezier permite um controle maior da speedramp da animação*/
-    will-change: background-position; /* usado para fazer o navegador otimizar a renderização dessa propriedade*/
+    animation: moveBackground 10s cubic-bezier(0.4, 0, 0.4, 1) infinite alternate;
+    /* infinite para uma animação infinita e alternate para ir e voltar. o cubic bezier permite um controle maior da speedramp da animação*/
+    will-change: background-position;
+    /* usado para fazer o navegador otimizar a renderização dessa propriedade*/
     display: flex;
     align-items: center;
     justify-content: center;
@@ -40,7 +42,16 @@
     0% {
         background-position: 0% 0%;
     }
+
     100% {
         background-position: 100% 0%;
     }
+}
+
+@media (min-width:1000px) {
+    .App {
+        background-size: 150% 100%;
+        background-position: start;
+    }
+
 }

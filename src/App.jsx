@@ -1,29 +1,39 @@
 //components
-import Title from './components/Title'
-import Counter from './components/Counter'
+import { Outlet } from 'react-router-dom'
+
+import NavBar from './components/NavBar';
+
+import { useContext } from 'react';
+
+import { CountdownContext } from './context/CountDownContext';
 
 //assets
 import Fundo from './assets/fundo.png'
 
-import useCountdown from './hooks/useCountDown'
+
 
 // estilos
 import './App.css'
 
+
+
 function App() {
-  const [dias, horas, minutos, segundos, anoAlvo] = useCountdown("Jan 1, 2026 00:00:00");
+  const {event} = useContext(CountdownContext)
+
+  let eventImage = null
+
+  if(event) eventImage = event.imagem
 
   return (
     <>
-      <div className="App" style={{ backgroundImage: `url(${Fundo})` }}>
+      <NavBar/>
+      <div className="App" style={
+        eventImage
+        ? {backgroundImage: `url(${eventImage})`}
+        : { backgroundImage: `url(${Fundo})` }
+      }>
         <div className="container">
-          <Title title={`Contagem regressiva para ${anoAlvo}`} />
-          <div className="countdown-container">
-            <Counter title="dias" number={dias} />
-            <Counter title="horas" number={horas} />
-            <Counter title="minutos" number={minutos} />
-            <Counter title="segundos" number={segundos} />
-          </div>
+          <Outlet/>
         </div>
       </div>
     </>
